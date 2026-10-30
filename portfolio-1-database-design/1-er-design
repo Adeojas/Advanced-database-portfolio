@@ -1,1 +1,27 @@
+erDiagram
+    CUSTOMERS ||--o{ ACCOUNTS : owns
+    ACCOUNTS ||--o{ TRANSACTIONS : has
 
+    CUSTOMERS {
+        int customer_id PK
+        varchar first_name
+        varchar last_name
+        varchar email
+        varchar phone
+    }
+
+    ACCOUNTS {
+        int account_id PK
+        int customer_id FK
+        varchar account_number
+        varchar account_type
+        decimal balance
+    }
+
+    TRANSACTIONS {
+        int transaction_id PK
+        int account_id FK
+        varchar transaction_type
+        decimal amount
+        date transaction_date
+    }
